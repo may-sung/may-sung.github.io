@@ -1,4 +1,471 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[may-sung.github.io]]></title><description><![CDATA[오월이의 개발일기]]></description><link>https://may-sung.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 01 Nov 2021 05:37:29 GMT</lastBuildDate><item><title><![CDATA[Gatsby 테마로 GitHub Blog 만들기]]></title><description><![CDATA[제 블로그의 테마나 Gatsby의 다른 테마를 활용해서 Github Blog…]]></description><link>https://may-sung.github.io/gatsby-github-blog/</link><guid isPermaLink="false">https://may-sung.github.io/gatsby-github-blog/</guid><pubDate>Mon, 05 Jul 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그의 테마나 Gatsby의 다른 테마를 활용해서 Github Blog를 만들고 싶은 분들이 계실텐데요! 이런 분들에게 도움을 드리고자 이 글을 쓰게 되었습니다. 잘 안되는 부분이나 궁금한 점을 댓글로 남겨주면 확인해보고 답변 드리도록 하겠습니다!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[may-sung.github.io]]></title><description><![CDATA[오월이의 개발일기]]></description><link>https://may-sung.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 02 Nov 2021 14:03:16 GMT</lastBuildDate><item><title><![CDATA[VS Code에서 Spring Boot 실행하기]]></title><description><![CDATA[📓 Summry spring boot 프로젝트시 Intellij나 Eclipse를 IDE로 사용하는 방법도 있지만 VS Code를 선호하는 사람들을 위해 VS Code에서 spring boot 기반 java application…]]></description><link>https://may-sung.github.io/vscode-spring-boot-start/</link><guid isPermaLink="false">https://may-sung.github.io/vscode-spring-boot-start/</guid><pubDate>Tue, 02 Nov 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;-summry&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-summry&quot; aria-label=&quot; summry permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;📓 Summry&lt;/h2&gt;
+&lt;p&gt;spring boot 프로젝트시 Intellij나 Eclipse를 IDE로 사용하는 방법도 있지만 VS Code를 선호하는 사람들을 위해 VS Code에서 spring boot 기반 java application을 개발할 수 있는 환경을 구축하는 방법을 소개합니다.&lt;/p&gt;
+&lt;h3 id=&quot;-spring-boot란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-spring-boot%EB%9E%80&quot; aria-label=&quot; spring boot란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;❓ Spring Boot란&lt;/h3&gt;
+&lt;p&gt;스프링 프레임워크 기반 프로젝트를 복잡한 설정없이 쉽고 빠르게 만들어주는 라이브러리입니다. 사용자가 일일이 모든 설정을 하지 않아도 자주 사용되는 기본설정을 알아서 해줍니다.&lt;/p&gt;
+&lt;br /&gt;
+&lt;h2 id=&quot;-사전준비&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-%EC%82%AC%EC%A0%84%EC%A4%80%EB%B9%84&quot; aria-label=&quot; 사전준비 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎈 사전준비&lt;/h2&gt;
+&lt;h3 id=&quot;1-visual-studio-code-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-visual-studio-code-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;1 visual studio code 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Visual Studio Code 설치&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;여기&lt;/a&gt;를 눌러 다운로드 후 설치해 주세요!&lt;/p&gt;
+&lt;h3 id=&quot;2-java-development-kitjdk-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-java-development-kitjdk-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;2 java development kitjdk 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Java Development Kit(JDK) 설치&lt;/h3&gt;
+&lt;p&gt;JDK가 설치되어 있어야 합니다. cmd에 아래 명령어를 입력후 Java 설치 여부를 확인해 주세요!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JDK 버전은 8 이상(11이상 권장)을 설치해야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# version check&lt;/span&gt;
+$ java -version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;h2 id=&quot;-plugin-install&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-plugin-install&quot; aria-label=&quot; plugin install permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;⚡ plugin install&lt;/h2&gt;
+&lt;p&gt;VS Code에서 단축키 &lt;code class=&quot;language-text&quot;&gt;Ctrl + Shift + X&lt;/code&gt;를 사용해 Extension Marketplace를 패널을 띄웁니다.&lt;/p&gt;
+&lt;h3 id=&quot;1-extension-pack-for-java&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-extension-pack-for-java&quot; aria-label=&quot;1 extension pack for java permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Extension Pack for Java&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java 응용 프로그램을 작성, 테스트 및 디버그하는 데 도움이 될 수 있는 널리 사용되는 확장팩입니다.
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack&quot;&gt;VS Marketplace 링크&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.111111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1UlEQVQI12PYsWPH+QsXrly8WFdXb+/s7BcQ6Ozi7Orp7eHjY2Nj7ePhZGttoWNkEm6oHW6gISUrJy8HAkBSUVGRYceuXe+fv3i0Y3djc7OBsbGNnZ2BkaGJmZm5pbWpkb6LuZaNhYmxqbmWlpaOnp6WtraOri4EKauoMJw+e/bCiRP/P32aNHWqnr6+rZ2tlbW1qamZoaGhvoGBhpaOlpY2UA8Q6GJqzs7OLikrrW1o8Pf3NzUzt7Wzs7K2MrcwNzM3MzI2NjIyUldXlQO6FgTAJJKzAduFQ6pBJIP7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-1.png&quot;
+        title=&quot;spring-boot-1.png&quot;
+        src=&quot;/static/317aa954672915ab83555f62bc8f97bf/37523/spring-boot-1.png&quot;
+        srcset=&quot;/static/317aa954672915ab83555f62bc8f97bf/e9ff0/spring-boot-1.png 180w,
+/static/317aa954672915ab83555f62bc8f97bf/f21e7/spring-boot-1.png 360w,
+/static/317aa954672915ab83555f62bc8f97bf/37523/spring-boot-1.png 720w,
+/static/317aa954672915ab83555f62bc8f97bf/1d69c/spring-boot-1.png 750w&quot;
+        sizes=&quot;(max-width: 720px) 100vw, 720px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-spring-boot-extension-pack&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-spring-boot-extension-pack&quot; aria-label=&quot;2 spring boot extension pack permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Spring Boot Extension Pack&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot 애플리케이션 개발 및 배포를 위한 확장팩입니다.
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack&quot;&gt;VS Marketplace 링크&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.111111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvElEQVQI123OSw6CMABFUVbCJ1aiLW2hQFvaYgz4awWHOjROjSMT1+QKjC5Pnanx5k1P8jy8gMmFg0OK8rHterdZu76fWbe0duPatW3bxVzqilAKAAjDMPrIS89ld50eHs3qmOeZ5JVIWSa1oRS3As0ULcoSoQQTChGMvvPAluxvzeneSAdFoczESKW4EGnGMMlGKEkwhm9M/uAoHugd5stx4Efa1KauK624FFxw9rrCWBwPfd8PXguCH/wEBnUwX1PyBYsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-2.png&quot;
+        title=&quot;spring-boot-2.png&quot;
+        src=&quot;/static/cabd4a488fc4753e01dc7e40dd30c515/37523/spring-boot-2.png&quot;
+        srcset=&quot;/static/cabd4a488fc4753e01dc7e40dd30c515/e9ff0/spring-boot-2.png 180w,
+/static/cabd4a488fc4753e01dc7e40dd30c515/f21e7/spring-boot-2.png 360w,
+/static/cabd4a488fc4753e01dc7e40dd30c515/37523/spring-boot-2.png 720w,
+/static/cabd4a488fc4753e01dc7e40dd30c515/1d69c/spring-boot-2.png 750w&quot;
+        sizes=&quot;(max-width: 720px) 100vw, 720px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-lombok-annotations-support-for-vs-code&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-lombok-annotations-support-for-vs-code&quot; aria-label=&quot;3 lombok annotations support for vs code permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Lombok Annotations Support for VS Code&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java 라이브러리로 반복되는 getter, setter, toString .. 등의 반복 메서드 작성 코드를 줄여줍니다.
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok&quot;&gt;VS Marketplace 링크&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.111111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0UlEQVQI1y1O0U6EMBDkMy56dLs9j4NCUUotFFogOfDCUTX6PcY/8h/tGTebnXmY2ZkIEI9ADYnj5LBcXt4+P1bvl3Vdt23zr9N89v767i/zPLtxtM4FTa1qUQrGWLSj8I0PP+x0QNrafpwmOwzd4J6qqjWm7a1Rj+cmt0ZLpTjnoizDplmGiNFyv/8i6IASZDZ8ds4Yo7SWUgZRlnGeF1ku/rDgeR5uIUSapkhplADcAeyRhhqdvdm7vtNto5vnUK+qZXI6EhJTACDwP+TGQvIvE8QuXsh47igAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-3.png&quot;
+        title=&quot;spring-boot-3.png&quot;
+        src=&quot;/static/f60c1658f105d3d90a09f5de89a652fe/37523/spring-boot-3.png&quot;
+        srcset=&quot;/static/f60c1658f105d3d90a09f5de89a652fe/e9ff0/spring-boot-3.png 180w,
+/static/f60c1658f105d3d90a09f5de89a652fe/f21e7/spring-boot-3.png 360w,
+/static/f60c1658f105d3d90a09f5de89a652fe/37523/spring-boot-3.png 720w,
+/static/f60c1658f105d3d90a09f5de89a652fe/1d69c/spring-boot-3.png 750w&quot;
+        sizes=&quot;(max-width: 720px) 100vw, 720px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br /&gt;
+&lt;h2 id=&quot;-create-project&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-create-project&quot; aria-label=&quot; create project permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🤖 create project&lt;/h2&gt;
+&lt;p&gt;이제 프로젝트를 생성해 보겠습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a Maven Project&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;VS Code에서 &lt;code class=&quot;language-text&quot;&gt;Ctrl + Shift + P&lt;/code&gt;를 사용해 &lt;code class=&quot;language-text&quot;&gt;Spring initalizr: Create a Maven Project&lt;/code&gt; 선택&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAIAAADXZGvcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAATklEQVQI14WKQQ7AIAgE/Q2QeAaN0lgV/P+PyqFJj93MYTLZlHMmIgQgRISXcPpb3FObU4+re9uru7W9u1mIlMIiH8xSa3Q103MuW+MeDymnGBsprjzkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-5.png&quot;
+        title=&quot;spring-boot-5.png&quot;
+        src=&quot;/static/ed991b93066807a1040befeee86e97b5/d8f62/spring-boot-5.png&quot;
+        srcset=&quot;/static/ed991b93066807a1040befeee86e97b5/e9ff0/spring-boot-5.png 180w,
+/static/ed991b93066807a1040befeee86e97b5/f21e7/spring-boot-5.png 360w,
+/static/ed991b93066807a1040befeee86e97b5/d8f62/spring-boot-5.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Boot Version&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;2.5.4 이상&lt;/code&gt;을 선택합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.22222222222222%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAa0lEQVQY05WP0QqAIAxF/ZMKYSrYtNSZ//9jXQgiH6I8nLftwKa2GNPekV/AZgzhNjCrJFKPo4hAqRVL4Q20D1fEuTVpLZeSkPXjT5UhYmbrrNZ6vpimnypjLQ7AO977ZRDExjlHOIBoND4B/lU6vR4nN8YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-6.png&quot;
+        title=&quot;spring-boot-6.png&quot;
+        src=&quot;/static/d6020d599794cb95537b905050c16775/d8f62/spring-boot-6.png&quot;
+        srcset=&quot;/static/d6020d599794cb95537b905050c16775/e9ff0/spring-boot-6.png 180w,
+/static/d6020d599794cb95537b905050c16775/f21e7/spring-boot-6.png 360w,
+/static/d6020d599794cb95537b905050c16775/d8f62/spring-boot-6.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Specify project language&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Java&lt;/code&gt; 선택&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.111111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVElEQVQI15WNUQqAMAxDe5T6PefApqUd6P2PZZkIwn70kY8QSELuLiIA5CEi+kSGMkGiqmZQxTBba+tNrW/NlFLIz8NyNa9HP81H7QDlR24w8/KfC4cSK9/1USPcAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-7.png&quot;
+        title=&quot;spring-boot-7.png&quot;
+        src=&quot;/static/e2cced46ed546fc57a3b6e6b778a8d2f/d8f62/spring-boot-7.png&quot;
+        srcset=&quot;/static/e2cced46ed546fc57a3b6e6b778a8d2f/e9ff0/spring-boot-7.png 180w,
+/static/e2cced46ed546fc57a3b6e6b778a8d2f/f21e7/spring-boot-7.png 360w,
+/static/e2cced46ed546fc57a3b6e6b778a8d2f/d8f62/spring-boot-7.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Input Group Id&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;com.example&lt;/code&gt; 입력&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAWklEQVQI123NSwrAIAwEUI+ToIlaaov4uf+xOqTopn2LIUwCcYcppVwGQ611Lr33MQYGlPtmczfq1rz3RMTMZPjPt3enUVURQaaUcs7IGGMIASnmXemCG/x7AL5/IheGl9M1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-8.png&quot;
+        title=&quot;spring-boot-8.png&quot;
+        src=&quot;/static/2ca0b277b4d93bccb652a91651c1ac63/d8f62/spring-boot-8.png&quot;
+        srcset=&quot;/static/2ca0b277b4d93bccb652a91651c1ac63/e9ff0/spring-boot-8.png 180w,
+/static/2ca0b277b4d93bccb652a91651c1ac63/f21e7/spring-boot-8.png 360w,
+/static/2ca0b277b4d93bccb652a91651c1ac63/d8f62/spring-boot-8.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Input Artifact Id&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;프로젝트 이름을 적어 주세요. 여기서는 &lt;code class=&quot;language-text&quot;&gt;demo&lt;/code&gt;라고 하겠습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAU0lEQVQI11XKSwrAIAwEUG/jB5oYJIKL6v1v5WBJiW8RhpmE1lp3VHWMMed8DfJaCyWmfgtca4wxm5RSdkop+eYfgogQ0XMgVEMHSuRvZWY0/4UNn/ghw0WDp2IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-9.png&quot;
+        title=&quot;spring-boot-9.png&quot;
+        src=&quot;/static/636c2d146f72450073cf573f9a436048/d8f62/spring-boot-9.png&quot;
+        srcset=&quot;/static/636c2d146f72450073cf573f9a436048/e9ff0/spring-boot-9.png 180w,
+/static/636c2d146f72450073cf573f9a436048/f21e7/spring-boot-9.png 360w,
+/static/636c2d146f72450073cf573f9a436048/d8f62/spring-boot-9.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Specify packaging type&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;War&lt;/code&gt; 선택&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 17.22222222222222%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAARklEQVQI143Muw3AQAgDUJYhDeInwnn/zUKiNNfdkytLNvVadf+qKjO7p9sAmDJ3EUEi4u5m5hGqeh1jZirA852pfeboOA/vaCB1pDFxwgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-10.png&quot;
+        title=&quot;spring-boot-10.png&quot;
+        src=&quot;/static/29ceaa88590de98452e05f9ae94863f1/d8f62/spring-boot-10.png&quot;
+        srcset=&quot;/static/29ceaa88590de98452e05f9ae94863f1/e9ff0/spring-boot-10.png 180w,
+/static/29ceaa88590de98452e05f9ae94863f1/f21e7/spring-boot-10.png 360w,
+/static/29ceaa88590de98452e05f9ae94863f1/d8f62/spring-boot-10.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Specify Java version&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;설치되어있는 &lt;code class=&quot;language-text&quot;&gt;Java 버전&lt;/code&gt;을 선택해 주세요! &lt;br /&gt;
+&lt;code class=&quot;language-text&quot;&gt;cmd&lt;/code&gt;창에 &lt;code class=&quot;language-text&quot;&gt;java -version&lt;/code&gt;을 입력해서 확인할 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.111111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAV0lEQVQI153NSw7AIAgEUK5Sk7qxmoqA0vsfrBNX/WyavkxmASHQ6L1NIoJmZjM7LtwdjWF7ob1WxQKnqqWUPG2AvuchpUTqQ0ybzuD557AIxbiGsPxzAkFBK1n3OettAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-11.png&quot;
+        title=&quot;spring-boot-11.png&quot;
+        src=&quot;/static/5cee222762cc3732844b567f264c4673/d8f62/spring-boot-11.png&quot;
+        srcset=&quot;/static/5cee222762cc3732844b567f264c4673/e9ff0/spring-boot-11.png 180w,
+/static/5cee222762cc3732844b567f264c4673/f21e7/spring-boot-11.png 360w,
+/static/5cee222762cc3732844b567f264c4673/d8f62/spring-boot-11.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Choose dependencies&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Lombok&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Spring Web&lt;/code&gt; 2개를 선택했습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 601px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVQoz4WPWw6CMBREuxMRkNoXVAoiH1rUKAkxRve/GYdWTX1ETxoyofcwF2KMKR1jMEZrjVA7KofPxl2FFEVBcN20bd2uxum6zrVWIXn+koMDyGEYjtfL/nza9r3d7TbWbrru71lbe+h7sjCmWjUlFls2ZVWhgHrm/yFzSgXnnHHGmJISThzHSZLgOflJFEUEH0CbEEIqxbnwMEdG6exB9kGappCZypWQcCHfoYEWyuEbrEbwc1JK9KAQW7yNhs6z02cvUymELxxXfdU8mJt+4wZ+TFy1tFHZnAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-12.png&quot;
+        title=&quot;spring-boot-12.png&quot;
+        src=&quot;/static/327695ce216342f347f08956df7ecc7e/d8f62/spring-boot-12.png&quot;
+        srcset=&quot;/static/327695ce216342f347f08956df7ecc7e/e9ff0/spring-boot-12.png 180w,
+/static/327695ce216342f347f08956df7ecc7e/f21e7/spring-boot-12.png 360w,
+/static/327695ce216342f347f08956df7ecc7e/d8f62/spring-boot-12.png 601w&quot;
+        sizes=&quot;(max-width: 601px) 100vw, 601px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;9&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;저장소 선택&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;프로젝트가 생성될 위치를 지정해 주세요.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.111111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABA0lEQVQoz52S60rEMBCF8/7vJoh/RMpi3bbpJWkuzf3WOptFQVyF3Y9hSDLnTMgQ1BNujQ5eee9MxcPKuRhjqsQvQuW7BCqklXI+cE7AJqTclNLGaK0v6hogvGbrHISxFloY60am0TCScSI+ROd8Svk4jlLKvu+QocumDFyijQV/zhlalFrKJfuY0cj1KlSpheMnoAEneK75+AU6C9MtNMWQbpX/B2E8d/0QwmVId5u7meNlhVlIKWEPr73DzLRjQmitHjGf+6Fpmrb9eMTczwRPk5SCEup9iH8DU8+VVD8JnCBK6bZtjLFlXtZ15bcQnC8rf2m657f26fX91M1D32GMPwGwuICrOoNjuQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-13.png&quot;
+        title=&quot;spring-boot-13.png&quot;
+        src=&quot;/static/daee6e8a395c81a7b7ada8725680221f/37523/spring-boot-13.png&quot;
+        srcset=&quot;/static/daee6e8a395c81a7b7ada8725680221f/e9ff0/spring-boot-13.png 180w,
+/static/daee6e8a395c81a7b7ada8725680221f/f21e7/spring-boot-13.png 360w,
+/static/daee6e8a395c81a7b7ada8725680221f/37523/spring-boot-13.png 720w,
+/static/daee6e8a395c81a7b7ada8725680221f/36c33/spring-boot-13.png 946w&quot;
+        sizes=&quot;(max-width: 720px) 100vw, 720px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;Finish!! 🙌&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br /&gt;
+&lt;h2 id=&quot;-test-code-작성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-test-code-%EC%9E%91%EC%84%B1&quot; aria-label=&quot; test code 작성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🖲 test code 작성&lt;/h2&gt;
+&lt;p&gt;프로젝트를 실행하기에 앞서 web에서 확인이 가능하도록 sample page를 생성하려고 합니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;/demo/src/main/resources/static&lt;/code&gt;안에 &lt;code class=&quot;language-text&quot;&gt;index.html&lt;/code&gt;파일을 생성합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 258px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 147.22222222222223%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADMklEQVRIx51V227TUBDsHyAhGtvx7dg+vjtO0rQqLVSpBAUiJIRIK3hBogghHnjg/1+G2dPEbZrQNDxsfTuZzu7M7u65noc0TVFUNXSWo65rtMMhtE7gODb6/f5Osec4DjyCJgRtDyaI4xgqihCGAeTbzoC2bcP3fRR5iU9fvqMoG5RlxSgIyEM7gi4Y+lBxiGJaIkpjw7I79D+AgR8i0gqH80PoUiOJE9i2xbgBu5v6pjLcfbcnf2y+CIMQ49Expq/eIlIK7aAlcAQpifnRBhCn76y921s+uK6LkgoPXpzCJ2CaaASBbwDNjxexfO5A70THUB5c10NEcZ5ezdHOZqioep5nSLMMw2FrrNUMBhiPx5jQDVVVGfHkviERIdQxXFrH8wJcTHMcHzeIohhJkiBmyPXmO4P/VFzhEaB7x1hJWW58czDEn68NXp8fQIUJSjLMaXZhIN/vp78x5dt62PCCCLkO8PNzA12XKE5OkTJdq2fdFv4By6yIcpN2iDoP8OPygPViK05oI7LrmG2w0UYfdoBuH096DibWPt4n9GesMWwaI8BoPELJq7vFlysMpU7iwaO6QKoCxFobdSWke+T7v1JdA5S0lIrQljmuP76jJUrUTc3UG9pmxF7PYFsWrHtxN8MVH5or262vNNTZJSdOYjyYCcMF0ySJF4ypfpHTAZmxzArDlXpYPbh+hOT8C3s7xWjEuhVkakxM1YvC1LOuG06lwkwkKcN6LzNSmrr3Zgr1+xsy1zGHrQ0pbk15eaP8AOnkAPrlcwrAdFPddcC2WGEoYoRBgIr2mF//QsUBK50xoqEVFe/1eg+OrjUfdh7kKDqLHTL1oKXoLLhYZTlsH7sOCOiYUS+AH5JnyOi/pm3NPBQh8jzfFXBxmGugVxwiZHeIkmIVAUvIcJdldQvIeajKMfxQGZ/F3HymQ3jdHVDGPCeNezSDyipUNG3dDLhrPOxTlPsTeiug7JTAc3HRsocjZfaypBqGIUOtmfdRgDEBr8oIDdsrW3RERqUHtJPU07Ht3WroBS7O5qVZp6mW6RIhoygRGXeb77EpmyXl9XEyo/8qqszlI4IISwHcRZS/tacUnhPmY0wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-14.png&quot;
+        title=&quot;spring-boot-14.png&quot;
+        src=&quot;/static/b37c5884a6c0e8faaa691e15064e4598/d9489/spring-boot-14.png&quot;
+        srcset=&quot;/static/b37c5884a6c0e8faaa691e15064e4598/e9ff0/spring-boot-14.png 180w,
+/static/b37c5884a6c0e8faaa691e15064e4598/d9489/spring-boot-14.png 258w&quot;
+        sizes=&quot;(max-width: 258px) 100vw, 258px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;index.html&lt;/code&gt; 코드는 아래와 같습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token doctype&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;!&lt;/span&gt;&lt;span class=&quot;token doctype-tag&quot;&gt;DOCTYPE&lt;/span&gt; &lt;span class=&quot;token name&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;en&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;meta&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;UTF-8&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;meta&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;http-equiv&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;X-UA-Compatible&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;IE=edge&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;meta&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;viewport&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width=device-width, initial-scale=1.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Document&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    hello world!!
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;h2 id=&quot;-프로젝트-실행하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0&quot; aria-label=&quot; 프로젝트 실행하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🚀 프로젝트 실행하기&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cmd에서 프로젝트가 생성된 위치로 이동해 아래 코드를 실행합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;./mvnw spring-boot:run&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8080&lt;/code&gt;으로 접속하면 &lt;code class=&quot;language-text&quot;&gt;hello world!!&lt;/code&gt; 문자열을 확인할 수 있습니다. 🙋‍♂️&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 606px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBklEQVQoz+1PSU7DQBCc/z+JDyAOHCBY2ImVzR579unxMpsdmwkoUgQnLpwotVqq7ipVNyr3J4wJbggXCkwPpkslpC7K42u2y8tTXh7z3SlVlu/ft4es2G+yXVEcXrItUhpCCM65GCcfrvA+OO+FhJrwlsq6oWdM6lY0TBwo5dIk+viWcQnIgI4hKK3BGNy0x3NVVXXLReesG0bKOKGMcQaK6aGrBnm5rGeMH56fUh4aO+nsmPZd31truRB2GLQPbBwnAKlU3w8h2Dkwa/0cpxgjAKRTAQwilGitUsI0TesNy7LeY/nG0+Szo/Ri2s3z/KW40y1XsizrT+dNie4Df4t/81+aPwDR1vViymcbvwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring-boot-15.png&quot;
+        title=&quot;spring-boot-15.png&quot;
+        src=&quot;/static/099dfa28500c95376b92937570edd393/4d4a2/spring-boot-15.png&quot;
+        srcset=&quot;/static/099dfa28500c95376b92937570edd393/e9ff0/spring-boot-15.png 180w,
+/static/099dfa28500c95376b92937570edd393/f21e7/spring-boot-15.png 360w,
+/static/099dfa28500c95376b92937570edd393/4d4a2/spring-boot-15.png 606w&quot;
+        sizes=&quot;(max-width: 606px) 100vw, 606px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;table-of-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#-summry&quot;&gt;📓 Summry&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#-spring-boot%EB%9E%80&quot;&gt;❓ Spring Boot란&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#-%EC%82%AC%EC%A0%84%EC%A4%80%EB%B9%84&quot;&gt;🎈 사전준비&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-visual-studio-code-%EC%84%A4%EC%B9%98&quot;&gt;1. Visual Studio Code 설치&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-java-development-kitjdk-%EC%84%A4%EC%B9%98&quot;&gt;2. Java Development Kit(JDK) 설치&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#-plugin-install&quot;&gt;⚡ plugin install&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-extension-pack-for-java&quot;&gt;1. Extension Pack for Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-spring-boot-extension-pack&quot;&gt;2. Spring Boot Extension Pack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-lombok-annotations-support-for-vs-code&quot;&gt;3. Lombok Annotations Support for VS Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#-create-project&quot;&gt;🤖 create project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#-test-code-%EC%9E%91%EC%84%B1&quot;&gt;🖲 test code 작성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0&quot;&gt;🚀 프로젝트 실행하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Gatsby 테마로 GitHub Blog 만들기]]></title><description><![CDATA[제 블로그의 테마나 Gatsby의 다른 테마를 활용해서 Github Blog…]]></description><link>https://may-sung.github.io/gatsby-github-blog/</link><guid isPermaLink="false">https://may-sung.github.io/gatsby-github-blog/</guid><pubDate>Mon, 05 Jul 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그의 테마나 Gatsby의 다른 테마를 활용해서 Github Blog를 만들고 싶은 분들이 계실텐데요! 이런 분들에게 도움을 드리고자 이 글을 쓰게 되었습니다. 잘 안되는 부분이나 궁금한 점을 댓글로 남겨주면 확인해보고 답변 드리도록 하겠습니다!&lt;/p&gt;
 &lt;h2 id=&quot;1-repository-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-repository-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 repository 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Repository 생성하기&lt;/h2&gt;
 &lt;p&gt;GitHub Blog를 만들려면 Github에 Repository를 생성해야 합니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
