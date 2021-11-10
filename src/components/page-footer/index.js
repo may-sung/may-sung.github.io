@@ -10,8 +10,8 @@ const PageFooter = ({ author, githubUrl }) => (
         &nbsp;
         <a href={githubUrl}>{author}</a>
         &nbsp;powered by
-        <a href="https://github.com/zoomKoding/zoomkoding-gatsby-blog">
-          &nbsp;zoomkoding-gatsby-blog
+        <a href="https://github.com/may-sung/may-sung.github.io">
+          &nbsp;may-sung.github.io
         </a>
       </p>
     </footer>
